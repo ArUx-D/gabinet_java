@@ -24,6 +24,9 @@ public class VisitController {
         return visitService.all();
     }
 
-
+    @PostMapping("/{id}/delete")
+    public void deleteById(Long id){
+        visitService.delete(id);
+    }
 
 }

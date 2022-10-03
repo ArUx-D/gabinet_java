@@ -18,7 +18,7 @@ public class ClientController {
     }
 
     @PostMapping("/add")
-    public Client add(@RequestBody Client client){
+    public Client add(@ModelAttribute Client client){
         return clientService.add(client);
     }
 
@@ -36,5 +36,10 @@ public class ClientController {
     public void deleteById(@PathVariable Long id){
         clientService.deleteById(id);
     }
+
+//    @PostMapping("/delete")
+//    public void deleteAll(){
+//        clientService.deleteAll();
+//    }
 
 }

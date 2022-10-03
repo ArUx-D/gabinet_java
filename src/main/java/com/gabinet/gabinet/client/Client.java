@@ -21,8 +21,6 @@ public class Client {
     private Integer phoneNumber;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
-    @Transient
-    private Integer age;
 
     public Client() {
     }
@@ -50,12 +48,8 @@ public class Client {
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", dateOfBirth=" + dateOfBirth +
-                ", age=" + age +
                 '}';
     }
 
-    public Integer getAge (){
-        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
-    }
 
 }
