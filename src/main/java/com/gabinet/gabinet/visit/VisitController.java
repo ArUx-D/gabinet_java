@@ -15,7 +15,7 @@ public class VisitController {
     }
 
     @PostMapping("/add")
-    public Visit add(@ModelAttribute Visit visit) {
+    public Visit add(@RequestBody Visit visit) {
         return visitService.add(visit);
     }
 

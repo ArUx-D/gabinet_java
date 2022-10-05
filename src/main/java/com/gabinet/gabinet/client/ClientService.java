@@ -33,8 +33,8 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
-    public void deleteAll(){
-        clientRepository.deleteAll();
-    }
+//    public void deleteAll(){
+//        clientRepository.deleteAll();
+//    }
 
 }
