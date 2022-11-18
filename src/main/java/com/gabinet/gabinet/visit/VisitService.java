@@ -1,7 +1,6 @@
 package com.gabinet.gabinet.visit;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +28,10 @@ public class VisitService {
 
     public void delete(Long id){
         visitRepository.deleteById(id);
+    }
+
+    public List<Visit> getByClientId(Long id){
+        return visitRepository.findByClientId(id);
     }
 
 }

@@ -5,9 +5,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.Period;
 
-@Table
+@Table(name = "CLIENT")
 @Entity
 @Data
 public class Client {
@@ -22,6 +21,7 @@ public class Client {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
 
+
     public Client() {
     }
 
@@ -30,6 +30,7 @@ public class Client {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
+
     }
 
     public Client(Long id, String firstName, String lastName, Integer phoneNumber, LocalDate dateOfBirth) {
@@ -50,6 +51,4 @@ public class Client {
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
-
-
 }
