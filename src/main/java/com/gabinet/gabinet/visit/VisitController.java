@@ -28,5 +28,9 @@ public class VisitController {
     public void deleteById(Long id){
         visitService.delete(id);
     }
+    @GetMapping("/client/{id}")
+    public List<Visit> getByClientId(@PathVariable Long id){
+        return visitService.getByClientId(id);
+    }
 
 }

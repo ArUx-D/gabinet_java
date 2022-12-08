@@ -1,8 +1,8 @@
-package com.gabinet.gabinet.security.securityUser.user.usernew;
+package com.gabinet.gabinet.security.securityUser.user;
 
 import com.gabinet.gabinet.security.securityUser.user.SecurityUser;
+import com.gabinet.gabinet.security.securityUser.user.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,17 +21,22 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    public List<SecurityUser> all(){
+    public List<SecurityUser> all() {
         return userService.all();
     }
 
-    @GetMapping("/{id}")
-    public Optional <SecurityUser> byId(@PathVariable Long id){
+    @GetMapping("/get/{id}")
+    public Optional<SecurityUser> byId(@PathVariable Long id) {
         return userService.findById(id);
     }
 
+    @PostMapping("/logged")
+    public SecurityUser findByToken(@RequestBody String token) {
+        return userService.findByToken(token);
+    }
+
     @DeleteMapping("/delete/{id}")
-    public void deleteById(@PathVariable Long id){
+    public void deleteById(@PathVariable Long id) {
         userService.delete(id);
     }
 

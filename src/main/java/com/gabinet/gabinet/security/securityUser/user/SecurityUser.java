@@ -2,12 +2,15 @@ package com.gabinet.gabinet.security.securityUser.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import net.bytebuddy.utility.nullability.MaybeNull;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 
 @Data
 @Table(name = "security_user")
 @Entity
+@AllArgsConstructor
 public class SecurityUser  {
 
     @Id
@@ -20,6 +23,9 @@ public class SecurityUser  {
     private String password;
     @Column(name = "role")
     private String role;
+    @Column(name = "token")
+    @MaybeNull
+    private String token = null;
 
     public SecurityUser() {
     }
@@ -42,13 +48,4 @@ public class SecurityUser  {
         this.role = role;
     }
 
-    @Override
-    public String toString() {
-        return "SecurityUser{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
-    }
 }
